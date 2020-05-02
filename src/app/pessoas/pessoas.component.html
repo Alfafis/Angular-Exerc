@@ -13,13 +13,16 @@
         <td>{{pessoa.id}}</td>
         <td>{{pessoa.name}}</td>
         <td>{{pessoa.email}}</td>
-        <td>Detalhes</td>
+        <td><button (click)="detalhePessoas(pessoa.id)">Detalhe</button></td>
       </tr>
     </tbody>
   </table>
 </div>
 
 <div>{{pessoa.name}}</div>
-<div>
+<!-- <div>
   <app-pessoas-detalhe (novaPessoa)="AlterarPessoa($event)"></app-pessoas-detalhe>
+</div> -->
+<div *ngIf="detalhePessoas">
+  <app-pessoas-detalhe [pessoa]="pessoa"></app-pessoas-detalhe>
 </div>

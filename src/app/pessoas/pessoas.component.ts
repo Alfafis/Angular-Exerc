@@ -15,12 +15,28 @@ export class PessoasComponent implements OnInit {
 
   pessoas: pessoas
 
-  AlterarPessoa(novaPessoa) { }
+  AlterarPessoa(novaPessoa) {
+    this.pessoasArray.forEach(pessoas => {
+      if (pessoas.id == pessoas.id) {
+        pessoas.name == pessoas.name
+      }
+    })
+  }
 
-  constructor(private eventosService: PessoasService) { }
+  detalheDaPessoa(id) {
+    console.log(id)
+    this.detalhePessoa = true
+    this.pessoasArray.forEach(novaPessoa => {
+      if (novaPessoa.id == id) {
+        this.pessoas == novaPessoa
+      }
+    })
+  }
+
+  constructor(private pessoasService: PessoasService) { }
 
   ngOnInit(): void {
-    this.pessoasArray = this.eventosService.getPessoas()
+    this.pessoasArray = this.pessoasService.getPessoas()
   }
 
 }
