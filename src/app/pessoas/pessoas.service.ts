@@ -56,14 +56,25 @@ export class PessoasService {
    }];
 
    getPessoas() {
-      return this.pessoasArray;
+      return this.pessoasArray
    }
 
-   criaEventos() {
-
+   getPessoa(id) {
+      this.pessoasArray.forEach(pessoa => {
+         if (pessoa.id == id) {
+            return pessoa
+         }
+      })
    }
 
-   constructor() {
-      console.log("Eventos Service");
+   alterarPessoa(pessoa) {
+      this.pessoasArray.forEach(pessoas => {
+         if (pessoas.id == pessoa.id) {
+            this.pessoasArray[pessoas.id] = pessoa
+            console.log(pessoa)
+         }
+      })
    }
+
+   constructor() { }
 }

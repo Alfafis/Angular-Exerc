@@ -8,35 +8,25 @@ import { PessoasService } from './pessoas.service';
   styleUrls: ['./pessoas.component.css']
 })
 export class PessoasComponent implements OnInit {
-
   pessoasArray: pessoas[] = []
-
   detalhePessoa: boolean = false
+  humano: pessoas
 
-  pessoas: pessoas
-
-  AlterarPessoa(novaPessoa) {
-    this.pessoasArray.forEach(pessoas => {
-      if (pessoas.id == pessoas.id) {
-        pessoas.name == pessoas.name
-      }
-    })
-  }
-
-  detalheDaPessoa(id) {
-    console.log(id)
-    this.detalhePessoa = true
-    this.pessoasArray.forEach(novaPessoa => {
-      if (novaPessoa.id == id) {
-        this.pessoas == novaPessoa
-      }
-    })
-  }
 
   constructor(private pessoasService: PessoasService) { }
 
   ngOnInit(): void {
     this.pessoasArray = this.pessoasService.getPessoas()
+    console.log(this.pessoasArray)
   }
 
+  detalheDaPessoa(pessoa) {
+    console.log(pessoa)
+    this.detalhePessoa = true
+    this.humano = pessoa
+  }
+
+  alterarPessoa(pessoa) {
+    this.pessoasService.alterarPessoa(pessoa)
+  }
 }
